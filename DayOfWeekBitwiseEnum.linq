@@ -13,9 +13,19 @@ void Main()
 	var today = (int)Enum.Parse(typeof(MyDayOfWeek), "Monday");
 
 	if (today == (today & weekdays))
-		"Weekday".Dump();
+		"True".Dump("IsWeekDay");
 	else 
-		"Weekend".Dump();
+		"False".Dump("IsWeekDay");
+
+	
+	var combinations = ((MyDayOfWeek)today).AllPossibleCombinations();
+	combinations.Dump("Combinations");
+
+	var previousToTarget = ((MyDayOfWeek)today).Previous(3);
+	previousToTarget.Dump("Previous");
+
+	var nextToTarget = ((MyDayOfWeek)today).Next(3);
+	nextToTarget.Dump("Previous");
 }
 
 [Flags]
