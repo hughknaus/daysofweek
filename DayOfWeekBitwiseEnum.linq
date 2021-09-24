@@ -4,13 +4,13 @@
 
 void Main()
 {
-	var weekdays = 31; // 1 + 2 + 4 + 8 + 16
-	var weekend = 96; // 32 + 64
+	var weekdays = 62; // 2 + 4 + 8 + 16 + 32
+	var weekend = 65; // 1 + 64
 	//OPTIONAL WAY OF WRITING IT:
-	//var weekdays = (int)(System.DayOfWeek.Monday | System.DayOfWeek.Tuesday | System.DayOfWeek.Wednesday | System.DayOfWeek.Thursday | System.DayOfWeek.Friday);
-	//var weekend = (System.DayOfWeek.Saturday | System.DayOfWeek.Sunday); 
+	//var weekdays = (int)(MyDayOfWeek.Monday | MyDayOfWeek.Tuesday | MyDayOfWeek.Wednesday | MyDayOfWeek.Thursday | MyDayOfWeek.Friday);
+	//var weekend = (MyDayOfWeek.Saturday | MyDayOfWeek.Sunday); 
 
-	var today = (int)DateTime.Today.DayOfWeek;
+	var today = (int)DateTime.Today.MyDayOfWeek;
 
 	if (today == (today & weekdays))
 		"Weekday".Dump();
@@ -18,17 +18,16 @@ void Main()
 		"Weekend".Dump();
 }
 
-// This is System.DayOfWeek
-/*
-public enum DayOfWeek
+
+public enum MyDayOfWeek : int
 {
-	Monday = 0x0000001, // 1
-    Tuesday = 0x0000010, // 2
-    Wednesday = 0x0000100, // 4
-    Thursday = 0x0001000, // 8
-    Friday = 0x0010000, // 16
-    Saturday = 0x0100000, // 32
-    Sunday = 0x1000000, // 64
+    Sunday = 1,         // 1 =  0000001  
+    Monday = 1 << 1,    // 2 =  0000010
+    Tuesday = 1 << 2,   // 4 =  0000100
+    Wednesday = 1 << 3, // 8 =  0001000
+    Thursday = 1 << 4,  // 16 = 0010000
+    Friday = 1 << 5,    // 32 = 0100000
+    Saturday = 1 << 6,  // 64 = 1000000
 }
-*/
+
 
